@@ -1,13 +1,14 @@
 import BlynkLib
 import RPi.GPIO as GPIO
 from time import sleep
-current_val= ''
+global current_val
 blynk = BlynkLib.Blynk('a49e0d5f2af8495a9bd5ed7044b31fc5')
 GPIO.setmode(GPIO.BCM)             # choose BCM or BOARD
 GPIO.setup(16, GPIO.OUT)           # set GPIO24 as an output
 GPIO.setup(20, GPIO.OUT)
 @blynk.VIRTUAL_WRITE(1)
 def my_write_handler(value):
+    global current_val
     print('Current V1 value: {}'.format(value))
     current_val = value
 
@@ -22,5 +23,4 @@ def led_switch(value):
 
 while True:
     blynk.run()
-    blynk.virtual_write(1, 1)
     print(current_val)
