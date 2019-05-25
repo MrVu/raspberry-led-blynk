@@ -1,5 +1,4 @@
 import BlynkLib
-import BlynkTimer
 import RPi.GPIO as GPIO
 from time import sleep
 blynk = BlynkLib.Blynk('a49e0d5f2af8495a9bd5ed7044b31fc5')
