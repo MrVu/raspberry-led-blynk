@@ -16,8 +16,9 @@ def light_slider(value):
 @blynk.VIRTUAL_WRITE(2)
 def led_switch(value):
     global valueV1
-    blynk.sync_virtual(1,2)
     int_value = int(value[0])
+    if int_value == 1:
+        blynk.sync_virtual(1,2,3)
     GPIO.output(16, int_value)
     GPIO.output(20, int_value)
     print('Current V2 value: {}'.format(value))
