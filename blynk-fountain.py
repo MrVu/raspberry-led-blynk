@@ -13,10 +13,13 @@ def my_write_handler(value):
 @blynk.VIRTUAL_WRITE(2)
 def led_switch(value):
     int_value = int(value[0])
-    GPIO.output(16, int_value)
-    GPIO.output(20, int_value)
-    print('Current V2 value: {}'.format(value))
-    sleep(5)
+    if int_value == 1:
+        GPIO.output(16, 1)
+        GPIO.output(20, 1)
+        print('Current V2 value: {}'.format(value))
+        sleep(5)
+        GPIO.output(16, 0)
+        GPIO.output(20, 0)
 
 while True:
     blynk.run()
