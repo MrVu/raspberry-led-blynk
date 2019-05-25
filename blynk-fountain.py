@@ -13,6 +13,7 @@ def my_write_handler(value):
 
 @blynk.VIRTUAL_WRITE(2)
 def led_switch(value):
+    global valueV1
     int_value = int(value[0])
     GPIO.output(16, int_value)
     GPIO.output(20, int_value)
