@@ -24,4 +24,4 @@ def get_val(value):
 
 while True:
     blynk.run()
-    print(get_val())
+    print(get_val)
