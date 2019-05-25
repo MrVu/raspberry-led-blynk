@@ -2,6 +2,8 @@ import BlynkLib
 import RPi.GPIO as GPIO
 from time import sleep
 blynk = BlynkLib.Blynk('a49e0d5f2af8495a9bd5ed7044b31fc5')
+global valueV1
+valueV1= ""
 GPIO.setmode(GPIO.BCM)             # choose BCM or BOARD
 GPIO.setup(16, GPIO.OUT)           # set GPIO24 as an output
 GPIO.setup(20, GPIO.OUT)
