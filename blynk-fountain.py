@@ -9,7 +9,7 @@ GPIO.setup(20, GPIO.OUT)
 @blynk.VIRTUAL_WRITE(1)
 def my_write_handler(value):
     print('Current V1 value: {}'.format(value))
-    current_val = value
+    get_val(value)
 
 @blynk.VIRTUAL_WRITE(2)
 def led_switch(value):
@@ -19,6 +19,9 @@ def led_switch(value):
     print('Current V2 value: {}'.format(value))
     sleep(5)
 
+def get_val(value):
+    return value
+
 while True:
     blynk.run()
-    print(current_val)
+    print(get_val())
