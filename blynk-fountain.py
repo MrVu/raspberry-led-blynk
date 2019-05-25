@@ -22,6 +22,6 @@ def led_switch(value):
 
 
 while True:
-    blynk.run()
     global current_val
+    blynk.run()
     print(current_val)
