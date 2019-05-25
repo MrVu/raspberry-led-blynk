@@ -7,6 +7,12 @@ valueV1= ""
 GPIO.setmode(GPIO.BCM)             # choose BCM or BOARD
 GPIO.setup(16, GPIO.OUT)           # set GPIO24 as an output
 GPIO.setup(20, GPIO.OUT)
+@blynk.ON("connected")
+def blynk_connected():
+    # You can also use blynk.sync_virtual(pin)
+    # to sync a specific virtual pin
+    print("Updating V1,V2,V3 values from the server...")
+    blynk.sync_virtual(1,2,3)
 
 @blynk.VIRTUAL_WRITE(1)
 def light_slider(value):
@@ -17,8 +23,6 @@ def light_slider(value):
 def led_switch(value):
     global valueV1
     int_value = int(value[0])
-    if int_value == 1:
-        blynk.sync_virtual(1,2,3)
     GPIO.output(16, int_value)
     GPIO.output(20, int_value)
     print('Current V2 value: {}'.format(value))
